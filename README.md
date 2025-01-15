@@ -48,6 +48,8 @@ There are still features to be built in, but for now we display all coins on the
 - 🎨 **2**: Move hardcoded values in the UI to pull from Theme.
 - 📊 **3**: Provide real data into the chart shown on Coin Detail view.
 - 🔑⏳ **4**: API key provided by Coin Gecko doesn't allow for retrieving further coin information, need to wait to hear from them or find a new provider.
+- 🧪 **5**: Make the tests more meaningful.
+- 🐝 **6**: Move away from local HiveDb and connect with an actual backend database
 
 ---
 
