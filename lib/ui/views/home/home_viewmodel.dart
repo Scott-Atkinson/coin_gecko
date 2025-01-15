@@ -4,7 +4,6 @@ import 'package:coin_gecko/app/app.router.dart';
 import 'package:coin_gecko/models/coin.dart';
 import 'package:coin_gecko/services/coin_service.dart';
 import 'package:coin_gecko/ui/common/app_strings.dart';
-
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -50,10 +49,17 @@ class HomeViewModel extends BaseViewModel {
     rebuildUi();
   }
 
-  void toggleFavorite(String coinId) {
+  void toggleFavorite(String coinId) async {
     final coinIndex = coins.indexWhere((coin) => coin.id == coinId);
     if (coinIndex != -1) {
       coins[coinIndex].isFavorite = !coins[coinIndex].isFavorite;
+
+      if (coins[coinIndex].isFavorite) {
+        await _coinService.favouiteCoin(coins[coinIndex]);
+      } else {
+        await _coinService.unFavouiteCoin(coins[coinIndex]);
+      }
+
       rebuildUi();
     }
   }

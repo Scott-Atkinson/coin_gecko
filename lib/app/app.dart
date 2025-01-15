@@ -7,6 +7,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:coin_gecko/services/coin_service.dart';
 import 'package:coin_gecko/ui/views/coin_detail/coin_detail_view.dart';
 import 'package:coin_gecko/ui/bottom_sheets/error/error_sheet.dart';
+import 'package:coin_gecko/services/hive_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -21,6 +22,7 @@ import 'package:coin_gecko/ui/bottom_sheets/error/error_sheet.dart';
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: CoinService),
+    LazySingleton(classType: HiveService),
 // @stacked-service
   ],
   bottomsheets: [

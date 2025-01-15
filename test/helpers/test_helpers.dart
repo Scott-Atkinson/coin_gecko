@@ -3,6 +3,7 @@ import 'package:mockito/mockito.dart';
 import 'package:coin_gecko/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:coin_gecko/services/coin_service.dart';
+import 'package:coin_gecko/services/hive_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -12,13 +13,16 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<CoinService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<HiveService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
   getAndRegisterNavigationService();
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
-  getAndRegisterCoinService(); // @stacked-mock-register
+  getAndRegisterCoinService();
+  getAndRegisterHiveService();
+// @stacked-mock-register
 }
 
 MockNavigationService getAndRegisterNavigationService() {
@@ -57,7 +61,8 @@ MockBottomSheetService getAndRegisterBottomSheetService<T>({
     customData: anyNamed('customData'),
     data: anyNamed('data'),
     description: anyNamed('description'),
-  )).thenAnswer((realInvocation) => Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
+  )).thenAnswer((realInvocation) =>
+      Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
 
   locator.registerSingleton<BottomSheetService>(service);
   return service;
@@ -77,6 +82,12 @@ MockCoinService getAndRegisterCoinService() {
   return service;
 }
 
+MockHiveService getAndRegisterHiveService() {
+  _removeRegistrationIfExists<HiveService>();
+  final service = MockHiveService();
+  locator.registerSingleton<HiveService>(service);
+  return service;
+}
 // @stacked-mock-create
 
 void _removeRegistrationIfExists<T extends Object>() {

@@ -8,6 +8,7 @@ import 'dart:ui' as _i6;
 
 import 'package:coin_gecko/models/coin.dart' as _i8;
 import 'package:coin_gecko/services/coin_service.dart' as _i7;
+import 'package:coin_gecko/services/hive_service.dart' as _i9;
 import 'package:flutter/material.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
@@ -700,3 +701,8 @@ class MockCoinService extends _i1.Mock implements _i7.CoinService {
             _i5.Future<List<_i8.Coin>>.value(<_i8.Coin>[]),
       ) as _i5.Future<List<_i8.Coin>>);
 }
+
+/// A class which mocks [HiveService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockHiveService extends _i1.Mock implements _i9.HiveService {}

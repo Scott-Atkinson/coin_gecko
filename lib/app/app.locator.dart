@@ -13,6 +13,7 @@ import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
 import '../services/coin_service.dart';
+import '../services/hive_service.dart';
 
 final locator = StackedLocator.instance;
 
@@ -28,5 +29,6 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => CoinService());
+  locator.registerLazySingleton(() => HiveService());
   locator.registerLazySingleton(() => ApiClient());
 }
