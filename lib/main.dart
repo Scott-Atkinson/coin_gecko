@@ -15,7 +15,7 @@ Future<void> main() async {
   setupBottomSheetUi();
   await Hive.initFlutter();
   await Hive.openBox('favorites');
-  await dotenv.load(fileName: '.env');
+  // await dotenv.load(fileName: '.env');
   runApp(const MainApp());
 }
 
